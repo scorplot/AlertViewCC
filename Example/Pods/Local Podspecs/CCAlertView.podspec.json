@@ -1,0 +1,19 @@
+{
+  "name": "CCAlertView",
+  "version": "1.0.0",
+  "summary": "A short description of CCAlertView.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/scorplot/CCAlertView",
+  "platforms": {
+    "ios": "7.0"
+  },
+  "authors": {
+    "caomeili": "https://github.com/caomeili"
+  },
+  "source": {
+    "git": "https://github.com/scorplot/CCAlertView",
+    "tag": "1.0.0"
+  },
+  "source_files": "Pod/Classes/**/*",
+  "public_header_files": "Pod/Classes/**/*.h"
+}
