@@ -6,8 +6,8 @@
 //
 //
 
-#import "CCAlertView.h"
+#import "AlertViewCC.h"
 
-@interface CCImitationAlertView : CCAlertView
+@interface CCImitationAlertView : AlertViewCC
 
 @end

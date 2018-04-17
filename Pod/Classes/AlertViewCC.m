@@ -1,12 +1,12 @@
 //
-//  CCAlertView.m
+//  AlertViewCC.m
 //  Pods
 //
 //  Created by may on 2017/7/13.
 //
 //
 
-#import "CCAlertView.h"
+#import "AlertViewCC.h"
 
 @interface CCAlertAction ()
 
@@ -34,7 +34,7 @@
 
 typedef void(^customHandler)(UIView * _Nullable view);
 
-@interface CCAlertView ()
+@interface AlertViewCC ()
 
 @property (nonatomic, strong) NSMutableDictionary *actionDictionary; // 存储CCAlertAction key为index
 @property (nonatomic, strong) UIView* view;
@@ -45,9 +45,9 @@ typedef void(^customHandler)(UIView * _Nullable view);
 
 @end
 
-static __strong CCAlertView *_pointer;
+static __strong AlertViewCC *_pointer;
 
-@implementation CCAlertView
+@implementation AlertViewCC
 
 - (instancetype)init {
     self = [super init];
@@ -107,7 +107,7 @@ static __strong CCAlertView *_pointer;
 
 @interface CCAlertFactory ()<UIAlertViewDelegate>
 
-@property (nonatomic, strong) CCAlertView *alert;
+@property (nonatomic, strong) AlertViewCC *alert;
 @property (nonatomic, strong) id custom;
 
 @end
@@ -124,22 +124,22 @@ static Class _Nullable customViewClass = nil;
     });
     return instance;
 }
-- (CCAlertView *_Nullable)createAlertView:(NSString *)message {
+- (AlertViewCC *_Nullable)createAlertView:(NSString *)message {
     return [self createAlertViewWithTitle:message message:nil style:UIAlertViewStyleDefault cancelAction:[CCAlertAction actionWithTitle:@"OK" handler:^(CCAlertAction * _Nullable action) {
         
     }] otherActions:nil, nil];
 }
-- (CCAlertView *)createAlertViewWithTitle:(NSString *)title message:(NSString *)message style:(UIAlertViewStyle)alertViewStyle cancelAction:(CCAlertAction *)cancelAction otherActions:(CCAlertAction *)otherAction, ... {
+- (AlertViewCC *)createAlertViewWithTitle:(NSString *)title message:(NSString *)message style:(UIAlertViewStyle)alertViewStyle cancelAction:(CCAlertAction *)cancelAction otherActions:(CCAlertAction *)otherAction, ... {
     __block NSInteger btnCount = 1;
     __block NSInteger viewCount = 0;
     // 自定义alertView
     if (customViewClass) {
         self.custom = [[customViewClass alloc] init];
-        // 判断自定义类是否继承与CCAlertView
-        NSAssert([self.custom isKindOfClass:[CCAlertView class]]||[customViewClass isSubclassOfClass:[CCAlertView class]],@"customView must inherit from CCAlertView");
-        if ([self.custom isKindOfClass:[CCAlertView class]] || [customViewClass isSubclassOfClass:[CCAlertView class]]) {
-            __block CCAlertView *customView = self.custom;
-            __weak CCAlertView *cc = customView;
+        // 判断自定义类是否继承与AlertViewCC
+        NSAssert([self.custom isKindOfClass:[AlertViewCC class]]||[customViewClass isSubclassOfClass:[AlertViewCC class]],@"customView must inherit from AlertViewCC");
+        if ([self.custom isKindOfClass:[AlertViewCC class]] || [customViewClass isSubclassOfClass:[AlertViewCC class]]) {
+            __block AlertViewCC *customView = self.custom;
+            __weak AlertViewCC *cc = customView;
             __block  UIView *v;
             // 添加自定义view
             customView.addViewHandler = ^(UIView *view, customHandler handler) {
@@ -191,7 +191,7 @@ static Class _Nullable customViewClass = nil;
         }
     }
     // 使用系统默认alertView
-    self.alert = [[CCAlertView alloc] init];
+    self.alert = [[AlertViewCC alloc] init];
     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:title message:message delegate:self cancelButtonTitle:cancelAction.title otherButtonTitles:nil, nil];
     if (cancelAction) {
         [self.alert addAction:cancelAction index:0];

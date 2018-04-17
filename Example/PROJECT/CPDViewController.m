@@ -7,7 +7,7 @@
 //
 
 #import "CPDViewController.h"
-#import <CCAlertView.h>
+#import <AlertViewCC.h>
 
 @interface CPDViewController ()
 
@@ -23,8 +23,8 @@
 }
 - (IBAction)buttonAction:(id)sender {
     UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(0, 0, 100, 50)];
-//        CCAlertView *alertView = [[CCAlertFactory shareInstance] createAlertView:@"saa"];
-    CCAlertView * alertView = [[CCAlertFactory  shareInstance] createAlertViewWithTitle:@"aaa" message:@"bbb" style:UIAlertViewStyleDefault cancelAction:[CCAlertAction actionWithTitle:@"取消" handler:nil] otherActions:[CCAlertAction actionWithTitle:@"1" handler:^(CCAlertAction * _Nullable action) {
+//        AlertViewCC *alertView = [[CCAlertFactory shareInstance] createAlertView:@"saa"];
+    AlertViewCC * alertView = [[CCAlertFactory  shareInstance] createAlertViewWithTitle:@"aaa" message:@"bbb" style:UIAlertViewStyleDefault cancelAction:[CCAlertAction actionWithTitle:@"取消" handler:nil] otherActions:[CCAlertAction actionWithTitle:@"1" handler:^(CCAlertAction * _Nullable action) {
         NSLog(@"%@",action.title);
     }], nil];
     //,[CCAlertAction actionWithTitle:@"2" handler:^(CCAlertAction * _Nullable action) {

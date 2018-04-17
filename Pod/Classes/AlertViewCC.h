@@ -1,5 +1,5 @@
 //
-//  CCAlertView.h
+//  AlertViewCC.h
 //  Pods
 //
 //  Created by may on 2017/7/17.
@@ -28,7 +28,7 @@
 
 // alertView 控制类  自定义alertView需要继承该类，并按需求重写方法
 
-@interface CCAlertView : NSObject
+@interface AlertViewCC : NSObject
 
 @property (nonatomic,strong) UIView * _Nullable superView; // alertView 的superView 默认 window
 @property (nonatomic, assign, readonly, getter=isShow) BOOL show;//是否正在显示
@@ -39,7 +39,7 @@
  添加自定义view
 
  当使用默认alertView 即 系统alert时，只能添加UITextField
- 当使用CCAlertView子类，自定义alertView时，可以添加任意UIView
+ 当使用AlertViewCC子类，自定义alertView时，可以添加任意UIView
  添加的view会在重写的方法- (UIView *_Nullable)customView:(UIView *_Nullable)view index:(NSInteger)index; 中获得
  
  @param view 自定义view
@@ -84,7 +84,7 @@
 @interface CCAlertFactory : NSObject
 
 + (instancetype _Nullable )shareInstance; // 单例，获取CCAlertFactory对象
-- (CCAlertView *_Nullable)createAlertView:(NSString *)message;
+- (AlertViewCC *_Nullable)createAlertView:(NSString *)message;
 /**
  创建alertView 样式
 
@@ -95,7 +95,7 @@
  @param otherAction alertView其他操作对象，获取方法同上，可以添加多个，用','隔开
  @return alertView对象
  */
-- (CCAlertView *_Nullable)createAlertViewWithTitle:(NSString *_Nullable)title message:(NSString *_Nullable)message style:(UIAlertViewStyle)alertViewStyle cancelAction:(CCAlertAction *_Nullable)cancelAction otherActions:(CCAlertAction *_Nullable)otherAction, ... NS_REQUIRES_NIL_TERMINATION;
+- (AlertViewCC *_Nullable)createAlertViewWithTitle:(NSString *_Nullable)title message:(NSString *_Nullable)message style:(UIAlertViewStyle)alertViewStyle cancelAction:(CCAlertAction *_Nullable)cancelAction otherActions:(CCAlertAction *_Nullable)otherAction, ... NS_REQUIRES_NIL_TERMINATION;
 
 - (void)setCustomAlertViewWithClass:(Class _Nullable)viewClass; // 设置自定义alertView ，传入view的class
 

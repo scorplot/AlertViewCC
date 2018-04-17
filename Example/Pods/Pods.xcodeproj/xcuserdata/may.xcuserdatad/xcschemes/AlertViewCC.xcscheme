@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '68935D52BD04016A578B31202D6166EF'
-               BlueprintName = 'CCAlertView'
+               BlueprintIdentifier = 'B35C0C2EC4B4C510C6E130329C78A809'
+               BlueprintName = 'AlertViewCC'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'libCCAlertView.a'>
+               BuildableName = 'libAlertViewCC.a'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
