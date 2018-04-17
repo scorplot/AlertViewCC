@@ -1,6 +1,6 @@
 
 Pod::Spec.new do |s|
-  s.name         = "CCCAlertView"
+  s.name         = "CCAlertView"
   s.version      = "1.0.1"
   s.summary      = "A short description of CCAlertView."
 
